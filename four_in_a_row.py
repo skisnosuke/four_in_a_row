@@ -22,7 +22,6 @@ class FourInARow:
         #ゲームのメインループ
         self.board = Board()
         self.temp_piece = Piece(100, 100, 1)
-        self.temp_piece2 = Piece(200, 200, 2)
         
         while True:
             #キーボードとマウスのイベントを管理
@@ -32,7 +31,7 @@ class FourInARow:
 
                 if event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
-                    self._select_row(x, y)
+                    self.board.select_row(x, y)
 
             self._update_screen()
 
@@ -41,36 +40,8 @@ class FourInARow:
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
         self.board.draw(self.screen)
-        self.temp_piece.draw(self.screen)
-        self.temp_piece2.draw(self.screen)
         #最新の画面の表示
         pygame.display.flip()
-
-    def _select_row(self, x, y):
-        #x,y座標からから列を選択 pieceに持たせた方がいいかも
-        self.x = x
-        # self.y = y
-        if (150 <= self.x and self.x < 250):
-            #return 0
-            print("0")
-        elif (self.x < 350):
-            #return 1
-            print("1")
-        elif (self.x < 450):
-            #return 2
-            print("2")
-        elif (self.x < 550):
-            #return 3
-            print("3")
-        elif (self.x < 650):
-            #return 4
-            print("4")
-        elif (self.x < 750):
-            #return 5
-            print("5")
-        elif (self.x < 850):
-            #return 6
-            print("6")
 
 if __name__ == "__main__":
     #ゲームのインスタンスを作成し、実行
