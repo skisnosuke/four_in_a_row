@@ -20,13 +20,13 @@ class Board:
         self.settings = Settings()
         self.pieces = []
 
-    def draw(self, screen):
+    def draw(self, surface):
         i = 0
         while i < self.settings.board_width:
             j=0
             while j < self.settings.board_height:
-                pygame.draw.rect(screen, self.settings.board_color, 
-                    (self.settings.board_x+i*100, self.settings.board_y+j*75, 
+                pygame.draw.rect(surface, self.settings.board_color, 
+                    (self.settings.board_x+i*75, self.settings.board_y+j*75, 
                     self.settings.board_rect_x, self.settings.board_rect_y), 1)
                 j+=1
             i+=1

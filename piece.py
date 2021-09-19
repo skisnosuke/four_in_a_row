@@ -14,4 +14,6 @@ class Piece:
         self.y = y
         self.player_num = player_num
         self.color = player_num == 1 if self.settings.piece_color_1 else self.settings.piece_color_2
-        self.rect = pygame.Rect(0, 0, 10, 10)
+
+    def draw(self, surface):
+        pygame.draw.circle(surface, self.color, (self.x, self.y), self.settings.piece_radius)

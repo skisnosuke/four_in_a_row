@@ -21,6 +21,7 @@ class FourInARow:
     def run_game(self):
         #ゲームのメインループ
         self.board = Board()
+        self.temp_piece = Piece(100, 100, 1)
         
         while True:
             #キーボードとマウスのイベントを管理
@@ -39,6 +40,7 @@ class FourInARow:
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
         self.board.draw(self.screen)
+        # self.temp_piece.draw(self.screen)
         #最新の画面の表示
         pygame.display.flip()
 
@@ -67,8 +69,6 @@ class FourInARow:
         elif (self.x < 850):
             #return 6
             print("6")
-
-
 
 if __name__ == "__main__":
     #ゲームのインスタンスを作成し、実行

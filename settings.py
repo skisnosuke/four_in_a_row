@@ -10,8 +10,7 @@ class Settings:
         self.bg_color = (230, 230, 230)
 
         """駒の設定"""
-        self.piece_width = 1
-        self.piece_height = 1
+        self.piece_radius = 24
         self.piece_color_1 = pygame.Color.r
         self.piece_color_2 = pygame.Color.b
 
@@ -22,6 +21,7 @@ class Settings:
         """ボードの矩形の設定"""
         self.board_x = 150
         self.board_y = 75
-        self.board_rect_x = 100
+        # self.board_rect_x = 100
+        self.board_rect_x = 75
         self.board_rect_y = 75
         self.board_color = (0, 0, 0)
