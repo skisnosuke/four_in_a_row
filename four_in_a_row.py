@@ -28,7 +28,7 @@ class FourInARow:
 
                 if event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
-                    self.board.select_row(x, y)
+                    self.board.create_piece(x, y, 1)
 
             self._update_screen()
 
@@ -37,6 +37,8 @@ class FourInARow:
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
         self.board.draw_board(self.screen)
+        #ピースsの描画
+        self.board.draw_pieces(self.screen)
         #最新の画面の表示
         pygame.display.flip()
 
