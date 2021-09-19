@@ -1,10 +1,8 @@
 from pygame.locals import *
 import sys
 import pygame
-
 from settings import Settings
 from board import Board
-from piece import Piece
 
 class FourInARow:
     #ゲームのアセットと動作を管理する全体的なクラス
@@ -21,7 +19,6 @@ class FourInARow:
     def run_game(self):
         #ゲームのメインループ
         self.board = Board()
-        self.temp_piece = Piece(100, 100, 1)
         
         while True:
             #キーボードとマウスのイベントを管理
@@ -39,7 +36,7 @@ class FourInARow:
         #画面の再描画
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
-        self.board.draw(self.screen)
+        self.board.draw_board(self.screen)
         #最新の画面の表示
         pygame.display.flip()
 

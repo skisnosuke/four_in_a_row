@@ -1,8 +1,9 @@
 import pygame
+from piece import Piece
 from settings import Settings
 class Board:
     # property
-    # 列ごとの高さ {1: 0, 2: 0, ...}
+    # 列ごとの個数 {1: 0, 2: 0, ...}
     # pieces : [piece, piece, ..]
 
     # method
@@ -17,16 +18,16 @@ class Board:
         self.settings = Settings()
         self.pieces = []
 
-    def draw(self, surface):
-        i = 0
-        while i < self.settings.board_column:
-            j=0
-            while j < self.settings.board_row:
+    def draw_board(self, surface):
+        for i in range(self.settings.board_column):
+            for j in range(self.settings.board_row):
                 pygame.draw.rect(surface, self.settings.board_color, 
                     (self.settings.board_x+i*self.settings.board_grid_width, self.settings.board_y+j*self.settings.board_grid_height,
                     self.settings.board_grid_width, self.settings.board_grid_height), 1)
-                j+=1
-            i+=1
+
+    # def draw_pieces(self, surface):
+    #     for i in range
+        
 
     def select_row(self, x, y):
         self.x = x
@@ -52,3 +53,7 @@ class Board:
         elif (self.x < self.settings.board_x+self.settings.board_grid_width*7):
             #return 6
             print("6")
+
+    def create_piece(self, x, y, player_num):
+        self.pieces.append(Piece(x, y, player_num))
+
