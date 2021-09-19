@@ -6,7 +6,7 @@ from settings import Settings
 from board import Board
 from piece import Piece
 
-class Four_In_A_Low:
+class FourInALow:
     #ゲームのアセットと動作を管理する全体的なクラス
     def __init__(self):
         #ゲームを初期化し、ゲームのリソースを作成する
@@ -72,5 +72,5 @@ class Four_In_A_Low:
 
 if __name__ == "__main__":
     #ゲームのインスタンスを作成し、実行
-    fial = Four_In_A_Low()
+    fial = FourInALow()
     fial.run_game()
