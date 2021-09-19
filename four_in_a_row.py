@@ -6,7 +6,7 @@ from settings import Settings
 from board import Board
 from piece import Piece
 
-class FourInALow:
+class FourInARow:
     #ゲームのアセットと動作を管理する全体的なクラス
     def __init__(self):
         #ゲームを初期化し、ゲームのリソースを作成する
@@ -72,5 +72,5 @@ class FourInALow:
 
 if __name__ == "__main__":
     #ゲームのインスタンスを作成し、実行
-    fial = FourInALow()
+    fial = FourInARow()
     fial.run_game()
