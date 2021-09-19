@@ -3,7 +3,7 @@ import sys
 import pygame
 
 from settings import Settings
-#from board import Board
+from board import Board
 from piece import Piece
 
 class Four_In_A_Low:
@@ -20,6 +20,8 @@ class Four_In_A_Low:
 
     def run_game(self):
         #ゲームのメインループ
+        self.board = Board()
+        
         while True:
             #キーボードとマウスのイベントを管理
             for event in pygame.event.get():
@@ -36,21 +38,9 @@ class Four_In_A_Low:
         #画面の再描画
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
-        self._draw_board()
+        self.board.draw(self.screen)
         #最新の画面の表示
         pygame.display.flip()
-
-    def _draw_board(self):
-        #ボードの描画
-        i = 0
-        while i < self.settings.board_width:
-            j=0
-            while j < self.settings.board_height:
-                pygame.draw.rect(self.screen, self.settings.board_color, 
-                    (self.settings.board_x+i*100, self.settings.board_y+j*75, 
-                    self.settings.board_rect_x, self.settings.board_rect_y), 1)
-                j+=1
-            i+=1
 
     def _select_row(self, x, y):
         #x,y座標からから列を選択 pieceに持たせた方がいいかも
