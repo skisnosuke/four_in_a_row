@@ -3,7 +3,7 @@ import sys
 import pygame
 
 from settings import Settings
-#from boarf import Board
+#from board import Board
 from piece import Piece
 
 class Four_In_A_Low:
@@ -55,7 +55,7 @@ class Four_In_A_Low:
     def _select_row(self, x, y):
         #x,y座標からから列を選択 pieceに持たせた方がいいかも
         self.x = x
-        self.y = y
+        # self.y = y
         if (150 <= self.x and self.x < 250):
             #return 0
             print("0")

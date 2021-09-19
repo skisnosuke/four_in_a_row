@@ -17,4 +17,3 @@ class Board:
     def __init__(self):
         self.settings = Settings()
         self.pieces = []
-
