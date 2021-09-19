@@ -3,16 +3,16 @@ from piece import Piece
 from settings import Settings
 class Board:
     # property
-    # 列ごとの個数 count_each_column {1: 0, 2: 0, ...}
-    # pieces : [piece, piece, ..]
+        # 列ごとの個数 count_each_column {1: 0, 2: 0, ...}
+        # pieces : [piece, piece, ..]
 
     # method
-    # 描画
-    # 置く
-        # 下から見てって 空なら置く 6を超えたら 置き直させる
-    # 勝利判定
-        # 縦横斜め
-    # 列の高さの更新
+        # 描画
+        # 置く
+            # 下から見てって 空なら置く 6を超えたら 置き直させる
+            # 列の個数の更新
+        # 勝利判定
+            # 縦横斜め
 
     def __init__(self):
         self.settings = Settings()
@@ -47,7 +47,7 @@ class Board:
         elif (self.x < self.settings.board_x+self.settings.board_grid_width*7):
             return 6
 
-    def create_piece(self, x, y, player_num):
+    def create_piece(self, x, player_num):
         self.column = self.get_column(x)
         self.row = self.count_each_column[self.column]
         # 重力を付けて描画
