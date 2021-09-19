@@ -28,7 +28,7 @@ class FourInARow:
 
                 if event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
-                    self.board.create_piece(x, 1)
+                    self.board.create_piece(x)
 
             self._update_screen()
 
