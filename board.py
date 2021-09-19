@@ -26,7 +26,7 @@ class Board:
             j=0
             while j < self.settings.board_row:
                 pygame.draw.rect(surface, self.settings.board_color, 
-                    (self.settings.board_x+i*75, self.settings.board_y+j*75, 
+                    (self.settings.board_x+i*self.settings.board_grid_width, self.settings.board_y+j*self.settings.board_grid_height,
                     self.settings.board_grid_width, self.settings.board_grid_height), 1)
                 j+=1
             i+=1
