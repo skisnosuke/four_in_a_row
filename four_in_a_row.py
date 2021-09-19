@@ -22,6 +22,7 @@ class FourInARow:
         #ゲームのメインループ
         self.board = Board()
         self.temp_piece = Piece(100, 100, 1)
+        self.temp_piece2 = Piece(200, 200, 2)
         
         while True:
             #キーボードとマウスのイベントを管理
@@ -40,7 +41,8 @@ class FourInARow:
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
         self.board.draw(self.screen)
-        # self.temp_piece.draw(self.screen)
+        self.temp_piece.draw(self.screen)
+        self.temp_piece2.draw(self.screen)
         #最新の画面の表示
         pygame.display.flip()
 
