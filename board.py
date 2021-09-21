@@ -70,7 +70,7 @@ class Board:
                 if piece.row == last_piece.row:
                     self.horizontals.append(piece.column)
                 if piece.column - piece.row == last_piece.column - last_piece.row:
-                    self.obliques_pos.apppend(piece.row)
+                    self.obliques_pos.append(piece.row)
                 if piece.column + piece.row == last_piece.column + last_piece.row:
                     self.obliques_neg.append(piece.row)
         return self._is_continuous_four(self.verticals) | self._is_continuous_four(self.horizontals) | self._is_continuous_four(self.obliques_pos) | self._is_continuous_four(self.obliques_neg)
@@ -79,7 +79,7 @@ class Board:
         nums.sort()
         count = 0
         for i in range(len(nums) - 1):
-            if nums[i] - nums[i+1] == 1:
+            if nums[i+1] - nums[i] == 1:
                 count += 1
             else:
                 count = 0

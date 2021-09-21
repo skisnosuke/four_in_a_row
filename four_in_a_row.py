@@ -29,6 +29,8 @@ class FourInARow:
                 if event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
                     self.board.create_piece(x)
+                    if self.board.is_win():
+                        print("winner:", self.board.pieces[-1].player_num)
 
             self._update_screen()
 
