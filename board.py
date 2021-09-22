@@ -31,7 +31,7 @@ class Board:
     def draw_pieces(self, surface):
         for piece in self.pieces:
             piece.draw(surface)
-        
+
     def _get_column(self, x):
         self.x = x
         if (self.settings.board_x <= self.x and self.x < self.settings.board_x+self.settings.board_grid_width):
@@ -74,7 +74,7 @@ class Board:
                 if piece.column + piece.row == last_piece.column + last_piece.row:
                     self.obliques_neg.append(piece.row)
         return self._is_continuous_four(self.verticals) | self._is_continuous_four(self.horizontals) | self._is_continuous_four(self.obliques_pos) | self._is_continuous_four(self.obliques_neg)
-    
+
     def _is_continuous_four(self, nums):
         nums.sort()
         count = 0

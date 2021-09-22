@@ -19,6 +19,7 @@ class FourInARow:
     def run_game(self):
         #ゲームのメインループ
         self.board = Board()
+        self.update_screen()
         
         while True:
             #キーボードとマウスのイベントを管理
@@ -29,13 +30,13 @@ class FourInARow:
                 if event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
                     self.board.create_piece(x)
+                    self.board.pieces[-1].drop(self.screen, self.board)
+                    self.update_screen()
                     if self.board.is_win():
                         print("winner:", self.board.pieces[-1].player_num)
 
-            self._update_screen()
-
-    def _update_screen(self):
-        #画面の再描画
+    def update_screen(self):
+        #画面のリセット
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
         self.board.draw_board(self.screen)
