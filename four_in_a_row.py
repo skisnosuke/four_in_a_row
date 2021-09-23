@@ -26,14 +26,23 @@ class FourInARow:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-
-                if event.type == MOUSEBUTTONDOWN:
+                elif event.type == pygame.KEYDOWN:
+                    self._check_keydown_events(event)
+                elif event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
                     self.board.create_piece(x)
                     self.board.pieces[-1].drop(self.screen, self.board)
                     self.update_screen()
                     if self.board.is_win():
                         print("winner:", self.board.pieces[-1].player_num)
+
+               
+
+
+    def _check_keydown_events(self, event):
+        if event.key == pygame.K_ESCAPE:
+            self.board.reset_board()
+            self.update_screen()
 
     def update_screen(self):
         #画面のリセット

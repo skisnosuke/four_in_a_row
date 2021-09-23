@@ -28,6 +28,12 @@ class Board:
                     (self.settings.board_x+i*self.settings.board_grid_width, self.settings.board_y+j*self.settings.board_grid_height,
                     self.settings.board_grid_width, self.settings.board_grid_height), 1)
 
+    def reset_board(self):
+        new_pieces = []
+        self.pieces = new_pieces
+        self.count_each_column = {i: 0 for i in range(self.settings.board_column)}
+        self.player_num = 1
+
     def draw_pieces(self, surface):
         for piece in self.pieces:
             piece.draw(surface)
