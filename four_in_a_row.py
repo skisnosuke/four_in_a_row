@@ -19,21 +19,33 @@ class FourInARow:
     def run_game(self):
         #ゲームのメインループ
         self.board = Board()
+        self.update_screen()
         
         while True:
             #キーボードとマウスのイベントを管理
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-
-                if event.type == MOUSEBUTTONDOWN:
+                elif event.type == pygame.KEYDOWN:
+                    self._check_keydown_events(event)
+                elif event.type == MOUSEBUTTONDOWN:
                     x, y = event.pos
                     self.board.create_piece(x)
+                    self.board.pieces[-1].drop(self.screen, self.board)
+                    self.update_screen()
+                    if self.board.is_win():
+                        print("winner:", self.board.pieces[-1].player_num)
 
-            self._update_screen()
+               
 
-    def _update_screen(self):
-        #画面の再描画
+
+    def _check_keydown_events(self, event):
+        if event.key == pygame.K_ESCAPE:
+            self.board.reset_board()
+            self.update_screen()
+
+    def update_screen(self):
+        #画面のリセット
         self.screen.fill(self.settings.bg_color)
         #ボードの描画
         self.board.draw_board(self.screen)
