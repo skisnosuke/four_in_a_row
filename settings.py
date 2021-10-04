@@ -20,3 +20,11 @@ class Settings:
         self.board_row = 6
         self.board_grid_width = 80
         self.board_grid_height = 80
+
+        """フォントの用意"""
+        self.font1 = pygame.font.SysFont("hg正楷書体pro", 20)
+        self.font2 = pygame.font.SysFont("hg正楷書体pro", 90)
+
+        """表示テキスト"""
+        self.text1 = self.font1.render("Esc: はじめから", True, (0, 0, 0))
+        self.text2 = self.font1.render("右クリック: 駒の設置", True, (0, 0, 0))

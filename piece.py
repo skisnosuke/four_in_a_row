@@ -9,8 +9,10 @@ class Piece:
         self.color =  self.settings.piece_color_1 if player_num == 1 else self.settings.piece_color_2
 
     def draw(self, surface):
-        self.x = self.settings.board_x + self.settings.board_grid_width * self.column + self.settings.board_grid_width * 0.5
-        self.y = self.settings.board_y + self.settings.board_row * self.settings.board_grid_height - (self.settings.board_grid_height * self.row + self.settings.board_grid_height * 0.5)
+        self.x = (self.settings.board_x + self.settings.board_grid_width * self.column
+                + self.settings.board_grid_width * 0.5)
+        self.y = (self.settings.board_y + self.settings.board_row * self.settings.board_grid_height - 
+            (self.settings.board_grid_height * self.row + self.settings.board_grid_height * 0.5))
         pygame.draw.circle(surface, self.color, (self.x, self.y), self.settings.piece_radius)
 
     def drop(self, surface, board):
